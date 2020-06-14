@@ -2,26 +2,27 @@ import numpy as np
 from Objects.Chromossome import *
 from random import *
 
+
 class GeneticAlgorithm():
-    def __init__(self,iterations,chromossomesNumber,std,mutationChance,function,crossover,crossChance):
-        self.iterations= iterations
-        self.standartDeviation= std
-        self.mutationChance= mutationChance
-        self.function= function
-        self.crossoverMethod= crossover
-        self.crossoverChance= crossChance
-        self.chromossomesNumber= chromossomesNumber
+    def __init__(self, iterations, chromossomesNumber, std, mutationChance, function, crossover, crossChance):
+        self.iterations = iterations
+        self.standartDeviation = std
+        self.mutationChance = mutationChance
+        self.function = function
+        self.crossoverMethod = crossover
+        self.crossoverChance = crossChance
+        self.chromossomesNumber = chromossomesNumber
+        self.contAngle = 0
 
     def createChromossomes(self):  # cria os cromossomos
         chromossomes= np.array([])
-        for i in range(0,self.chromossomesNumber):
-            chromossomes = np.append(chromossomes,Chromossome())
+        for i in range(0, self.chromossomesNumber):
+            chromossomes = np.append(chromossomes, Chromossome())
             chromossomes[i].generateRandomPosition(self.function)
             chromossomes[i].updateFitness(self.function)
         return chromossomes
 
-
-    def selection(self,population):
+    def selection(self, population):
         candidato_a = population.chromossomes[randint(0, self.chromossomesNumber - 1)]
         while True:
             candidato_b = population.chromossomes[randint(0, self.chromossomesNumber - 1)]
@@ -38,7 +39,7 @@ class GeneticAlgorithm():
                 son.position[i] = son.position[i] + np.random.normal(0, 3)
         return son
 
-    def crossover(self,population):
+    def crossover(self, population):
         dad = self.selection(population)
         mom = self.selection(population)
         son = Chromossome()
@@ -46,7 +47,7 @@ class GeneticAlgorithm():
         return self.crossoverMethod(self, son, dad, mom)
 
     def naturalSelection(self,population):
-        population.chromossomes = sorted(population.chromossomes, key=Chromossome.get_fitness)
         for i in range(0, self.chromossomesNumber):
             population.chromossomes = np.delete(population.chromossomes, -1)
+
 

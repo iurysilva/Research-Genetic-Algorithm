@@ -1,12 +1,14 @@
 import numpy as np
 
-def arithmetic_crossing(geneticAlgorithm, filho,pai,mae,population):
-    for i in range(0,geneticAlgorithm.function.dimensions):
-        r=np.random.uniform(0,1)
-        filho.position[i]= pai.position[i]*r+(1-r)*mae.position[i]
-    return filho
 
-def BLX(geneticAlgorithm, son,dad,mom):
+def arithmetic(geneticAlgorithm, son, dad, mom):
+    for dimension in range(0, geneticAlgorithm.function.dimensions):
+        r = np.random.uniform(0, 1)
+        son.position[dimension] = dad.position[dimension]*r+(1-r)*mom.position[dimension]
+    return son
+
+
+def blx(geneticAlgorithm, son,dad,mom):
     for i in range(geneticAlgorithm.function.dimensions):
         if dad.position[i] >= mom.position[i]:
             higher = dad.position[i]+np.absolute(dad.position[i]*0.5)

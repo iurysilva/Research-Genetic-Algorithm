@@ -1,22 +1,35 @@
 import numpy as np
 
+
 class Bukin6():
     def __init__(self):
-        self.limits= np.array([-15,3],dtype="int64")
-        self.function_minimum= np.array([-10,1])
-        self.dimensions= 2
+        self.limits = np.array([-15, 3], dtype="int64")
+        self.functionMinimum = np.array([-10, 1])
+        self.dimensions = 2
 
-    def result(self,x):
+    def result(self, x):
         return 100*(np.sqrt(np.absolute(x[1]-0.01*x[0]**2)))+(0.01*np.absolute(x[0]+10))
+
 
 class Eggholder():
     def __init__(self):
-        self.limits= np.array([-512,512],dtype="int64")
-        self.function_minimum= np.array([512,404.2319])
+        self.limits = np.array([-512,512], dtype="int64")
+        self.functionMinimum = np.array([512, 404.2319])
+        self.dimensions = 2
+
+    def result(self, x):
+        return -(x[1]+47)*np.sin(np.sqrt(np.absolute(x[1]+(x[0]/2)+47)))-x[0]*np.sin(np.sqrt(np.absolute(x[0]-(x[1]+47))))
+
+
+class Quadratic():
+    def __init__(self):
+        self.limits = np.array([-32, 32], dtype="int64")
+        self.functionMinimum = np.array([0, 0])
         self.dimensions= 2
 
-    def result(self,x):
-        return -(x[1]+47)*np.sin(np.sqrt(np.absolute(x[1]+(x[0]/2)+47)))-x[0]*np.sin(np.sqrt(np.absolute(x[0]-(x[1]+47))))
+    def result(self, x):
+        return x[0]**2+x[1]**2
+
 
 '''
 def booth(x,swarm):
@@ -45,11 +58,6 @@ def ackley(x,swarm):
     cos_term = -np.exp((np.cos(c*x[0]) + np.cos(c*x[0])) / 2)
     return a + np.exp(1) + sum_sq_term + cos_term
 
-
-def quadratic(x,swarm):
-    swarm.limits= np.array([-32,32],dtype="int64")
-    swarm.function_minimum= np.array([0,0])
-    return x[0]**2+x[1]**2
 
 
 def cross(x,swarm):
