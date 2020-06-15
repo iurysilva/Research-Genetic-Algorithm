@@ -21,14 +21,28 @@ class Eggholder():
         return -(x[1]+47)*np.sin(np.sqrt(np.absolute(x[1]+(x[0]/2)+47)))-x[0]*np.sin(np.sqrt(np.absolute(x[0]-(x[1]+47))))
 
 
-class Quadratic():
+class Sphere():
     def __init__(self):
         self.limits = np.array([-32, 32], dtype="int64")
         self.functionMinimum = np.array([0, 0])
-        self.dimensions= 2
+        self.dimensions = 2
 
     def result(self, x):
-        return x[0]**2+x[1]**2
+        return np.sum(x**2)
+
+
+class Cross:
+    def __init__(self):
+        self.limits = np.array([-10, 10], dtype="int64")
+        self.functionMinimum = np.array([1.349407, 1.349407])
+        self.dimensions = 2
+
+    def result(self, x):
+        a = np.sqrt(x[0] ** 2 + x[1] ** 2) / np.pi
+        b = np.exp(np.absolute(100 - (a)))
+        c = np.sin(x[0]) * np.sin(x[1]) * b
+        d = (np.absolute(c) + 1) ** 0.1
+        return -0.0001 * d
 
 
 '''
@@ -58,16 +72,6 @@ def ackley(x,swarm):
     cos_term = -np.exp((np.cos(c*x[0]) + np.cos(c*x[0])) / 2)
     return a + np.exp(1) + sum_sq_term + cos_term
 
-
-
-def cross(x,swarm):
-    swarm.limits= np.array([-10,10],dtype="int64")
-    swarm.function_minimum= np.array([1.349407,1.349407])
-    a= np.sqrt(x[0]**2+x[1]**2)/np.pi
-    b= np.exp(np.absolute(100-(a)))
-    c= np.sin(x[0])*np.sin(x[1])*b
-    d= (np.absolute(c)+1)**0.1
-    return -0.0001*d
 
 
 def schaffer2(x,swarm):

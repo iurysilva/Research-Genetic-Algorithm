@@ -1,10 +1,11 @@
-from Procedures.FindAngle import findAngle
 import numpy as np
 
 
 def updateAngleList(geneticAlgorithm, population):
-    if type(population.chromossomesAngles) == int:
-        population.chromossomesAngles = np.zeros((geneticAlgorithm.iterations+1)*geneticAlgorithm.chromossomesNumber)
-    for chromossome in population.chromossomes:
-        population.chromossomesAngles[geneticAlgorithm.contAngle] = findAngle(chromossome.position)
-        geneticAlgorithm.contAngle += 1
+    x = population.chromossomesInformations[::3]
+    y = population.chromossomesInformations[1::3]
+    newAngles = np.arctan2(y, x)*180/np.pi
+    for yPosition in range(geneticAlgorithm.chromossomesNumber):
+        if y[yPosition] < 0:
+            newAngles[yPosition] += 360
+    population.chromossomesAngles = np.concatenate((population.chromossomesAngles, newAngles))

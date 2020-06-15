@@ -15,5 +15,6 @@ population.updateChromossomesInformations(geneticAlgorithm)
 for generations in range(geneticAlgorithm.iterations):
     if verifyIfChromossomesAreEqual(population, geneticAlgorithm.function) is True:
         break
-    doOneGeneration(geneticAlgorithm, population)
+    else:
+        doOneGeneration(geneticAlgorithm, population)
 makeHistogram(geneticAlgorithm, population)
