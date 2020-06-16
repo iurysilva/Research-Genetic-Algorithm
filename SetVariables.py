@@ -1,5 +1,7 @@
 from Procedures.CrossoverMethods import *
 from Objects.BenchmarkFunctions import *
+print("ih rapaiz")
+
 
 crossoverChance = 0.80
 mutationChance = 0.02
