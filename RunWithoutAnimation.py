@@ -1,9 +1,9 @@
-from Objects.GeneticAlgorithm import GeneticAlgorithm
-from Objects.Population import Population
-from Procedures.VerifyIfChromossomesAreEqual import verifyIfChromossomesAreEqual
+from objects import GeneticAlgorithm
+from objects import Population
+from procedures import verifyIfChromossomesAreEqual
 from SetVariables import *
-from Procedures.DoOneGeneration import doOneGeneration
-from Procedures.MakeHistogram import makeHistogram
+from procedures import doOneGeneration
+from procedures import makeHistogram
 
 # creating project
 geneticAlgorithm = GeneticAlgorithm(iterations, chromossomesNumber, standartDeviation, mutationChance, function,

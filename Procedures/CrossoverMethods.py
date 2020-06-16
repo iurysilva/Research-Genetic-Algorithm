@@ -18,6 +18,6 @@ def blx(geneticAlgorithm, son, dad, mom):
         while True:
             b = np.random.uniform(-0.5, 1.5)
             son.position[i]= dad.position[i]+(b*(mom.position[i]-dad.position[i]))
-            if son.position[i] <= higher and son.position[i] >= lower:
+            if higher >= son.position[i] >= lower:
                 break
     return son

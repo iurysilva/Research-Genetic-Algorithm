@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from SetVariables import *
-from Objects.GeneticAlgorithm import GeneticAlgorithm
-from Objects.Population import Population
-from Procedures.DoOneGeneration import doOneGeneration
-from Procedures.MakeHistogram import makeHistogram
-from Procedures.VerifyIfChromossomesAreEqual import verifyIfChromossomesAreEqual
+from objects import GeneticAlgorithm
+from objects import Population
+from procedures import doOneGeneration
+from procedures import makeHistogram
+from procedures import verifyIfChromossomesAreEqual
 
 # creating project
 geneticAlgorithm = GeneticAlgorithm(iterations, chromossomesNumber, standartDeviation, mutationChance, function,

@@ -1,0 +1,6 @@
+from procedures.CrossoverMethods import *
+from procedures.DoOneGeneration import doOneGeneration
+from procedures.LimitSonPosition import limitSonPosition
+from procedures.MakeHistogram import makeHistogram
+from procedures.UpdateAngleList import updateAngleList
+from procedures.VerifyIfChromossomesAreEqual import verifyIfChromossomesAreEqual

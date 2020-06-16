@@ -1,5 +1,5 @@
-from Procedures.LimitSonPosition import limitSonPosition
-from Procedures.UpdateAngleList import updateAngleList
+from procedures.LimitSonPosition import limitSonPosition
+from procedures.UpdateAngleList import updateAngleList
 import numpy as np
 
 

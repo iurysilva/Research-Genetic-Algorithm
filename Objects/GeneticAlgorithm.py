@@ -1,5 +1,5 @@
 import numpy as np
-from Objects.Chromossome import Chromossome
+from objects import Chromossome
 from random import *
 
 

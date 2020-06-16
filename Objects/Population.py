@@ -1,5 +1,5 @@
 import numpy as np
-from Objects.Chromossome import Chromossome
+from objects import Chromossome
 
 class Population():
     def __init__(self, chromossomes=np.array([])):
