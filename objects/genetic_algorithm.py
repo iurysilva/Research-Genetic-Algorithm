@@ -3,22 +3,22 @@ from objects import Chromossome
 from random import *
 
 
-class GeneticAlgorithm():
-    def __init__(self, iterations, chromossomesNumber, std, mutationChance, function, crossover, crossChance):
+class GeneticAlgorithm:
+    def __init__(self, iterations, chromossomes_number, std, mutation_chance, function, crossover, cross_chance):
         self.iterations = iterations
         self.standartDeviation = std
-        self.mutationChance = mutationChance
+        self.mutationChance = mutation_chance
         self.function = function
         self.crossoverMethod = crossover
-        self.crossoverChance = crossChance
-        self.chromossomesNumber = chromossomesNumber
+        self.crossoverChance = cross_chance
+        self.chromossomesNumber = chromossomes_number
 
-    def createChromossomes(self):
+    def create_chromossomes(self):
         chromossomes = np.array([])
         for i in range(self.chromossomesNumber):
             chromossomes = np.append(chromossomes, Chromossome())
-            chromossomes[i].generateRandomPosition(self.function)
-            chromossomes[i].updateFitness(self.function)
+            chromossomes[i].generate_random_position(self.function)
+            chromossomes[i].update_fitness(self.function)
         return chromossomes
 
     def selection(self, population):
@@ -46,7 +46,7 @@ class GeneticAlgorithm():
         else:
             return False
 
-    def naturalSelection(self, population):
+    def natural_selection(self, population):
         while len(population.chromossomes) != 50:
             population.chromossomes = np.delete(population.chromossomes, -1)
 

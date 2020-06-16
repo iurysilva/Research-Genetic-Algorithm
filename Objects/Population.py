@@ -1,20 +1,21 @@
 import numpy as np
 from objects import Chromossome
 
-class Population():
+
+class Population:
     def __init__(self, chromossomes=np.array([])):
         self.chromossomes = chromossomes
         self.chromossomesInformations = 0
         self.chromossomesAngles = np.array([], dtype="float64")
 
-    def updateChromossomesInformations(self, geneticAlgorithm):
+    def update_chromossomes_informations(self, genetic_algorithm):
         if type(self.chromossomesInformations) == int:
-            self.chromossomesInformations = np.zeros(geneticAlgorithm.chromossomesNumber*(geneticAlgorithm.function.dimensions+1), dtype="float64")
-        for i in range(geneticAlgorithm.chromossomesNumber):
+            self.chromossomesInformations = np.zeros(genetic_algorithm.chromossomesNumber*(genetic_algorithm.function.dimensions+1), dtype="float64")
+        for i in range(genetic_algorithm.chromossomesNumber):
             chromossome = self.chromossomes[i]
             self.chromossomesInformations[i * 3] = chromossome.position[0]
             self.chromossomesInformations[i * 3 + 1] = chromossome.position[1]
             self.chromossomesInformations[i * 3 + 2] = chromossome.fitness
 
-    def ordenateChromossomes(self):
+    def ordenate_chromossomes(self):
         self.chromossomes = sorted(self.chromossomes, key=Chromossome.get_fitness)

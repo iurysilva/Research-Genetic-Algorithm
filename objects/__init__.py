@@ -1,3 +1,3 @@
-from objects.Chromossome import Chromossome
-from objects.GeneticAlgorithm import GeneticAlgorithm
-from objects.Population import Population
+from objects.chromossome import Chromossome
+from objects.genetic_algorithm import GeneticAlgorithm
+from objects.population import Population
