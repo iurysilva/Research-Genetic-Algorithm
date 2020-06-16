@@ -22,15 +22,17 @@ class GeneticAlgorithm:
         return chromossomes
 
     def selection(self, population):
-        candidato_a = population.chromossomes[randint(0, self.chromossomesNumber - 1)]
+        random_position_a = randint(0, self.chromossomesNumber-1)
+        candidate_a = population.chromossomes[random_position_a]
         while True:
-            candidato_b = population.chromossomes[randint(0, self.chromossomesNumber - 1)]
-            if np.ndarray.any(candidato_b.position != candidato_a.position):
+            random_position_b = randint(0, self.chromossomesNumber-1)
+            candidate_b = population.chromossomes[random_position_b]
+            if random_position_a != random_position_b:
                 break
-        if candidato_a.fitness >= candidato_b.fitness:
-            return candidato_b
+        if candidate_a.fitness >= candidate_b.fitness:
+            return candidate_b
         else:
-            return candidato_a
+            return candidate_a
 
     def mutation(self, son):
         for i in range(0, len(son.position)):

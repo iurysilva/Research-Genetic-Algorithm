@@ -3,4 +3,4 @@ from procedures.do_one_generation import do_one_generation
 from procedures.limit_son_position import limit_son_position
 from procedures.make_histogram import make_histogram
 from procedures.update_angle_list import update_angle_list
-from procedures.verify_If_chromossomes_are_equal import verify_if_chromossomes_are_equal
+

@@ -5,7 +5,6 @@ from objects import GeneticAlgorithm
 from objects import Population
 from procedures import do_one_generation
 from procedures import make_histogram
-from procedures import verify_if_chromossomes_are_equal
 
 # creating project
 geneticAlgorithm = GeneticAlgorithm(iterations, chromossomesNumber, standartDeviation, mutationChance, function,
@@ -27,7 +26,7 @@ def animation2d(frame):
     population.update_chromossomes_informations(geneticAlgorithm)
     geneticAlgorithm.iterations -= 1
     plt.title('generations left: %d' % (geneticAlgorithm.iterations+1))
-    if geneticAlgorithm.iterations == -1 or verify_if_chromossomes_are_equal(population, geneticAlgorithm.function):
+    if geneticAlgorithm.iterations == -1:
         anim.event_source.stop()
         make_histogram(geneticAlgorithm, population)
 
