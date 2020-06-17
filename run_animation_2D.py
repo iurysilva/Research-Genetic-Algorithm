@@ -23,7 +23,6 @@ def animation2d(frame):
     positions = population.chromossomesInformations
     scat2D = plt.scatter(positions[::3], positions[1::3], c=['k'])
     do_one_generation(geneticAlgorithm, population)
-    population.update_chromossomes_informations(geneticAlgorithm)
     geneticAlgorithm.iterations -= 1
     plt.title('generations left: %d' % (geneticAlgorithm.iterations+1))
     if geneticAlgorithm.iterations == -1:

@@ -1,10 +1,13 @@
 import numpy as np
 
 
-def arithmetic(genetic_algorithm, son, dad, mom):
+def arithmetic(genetic_algorithm, son1, son2, dad, mom):
     r = np.random.uniform(0, 1, genetic_algorithm.function.dimensions)
-    son.position = dad.position*r+(1-r)*mom.position
-    return son
+    son1.position = dad.position*r+(1-r)*mom.position
+    son2.position = mom.position*r+(1-r)*dad.position
+    son1.update_fitness(genetic_algorithm.function)
+    son2.update_fitness(genetic_algorithm.function)
+    return np.array([son1, son2])
 
 
 def blx(genetic_algorithm, son, dad, mom):

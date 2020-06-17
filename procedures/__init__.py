@@ -1,6 +1,5 @@
 from procedures.crossover_methods import *
 from procedures.do_one_generation import do_one_generation
-from procedures.limit_son_position import limit_son_position
 from procedures.make_histogram import make_histogram
 from procedures.update_angle_list import update_angle_list
 
