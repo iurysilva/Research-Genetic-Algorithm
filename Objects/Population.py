@@ -1,5 +1,5 @@
 import numpy as np
-from objects import Chromossome
+from . import Chromossome
 
 
 class Population:

@@ -1,4 +1,4 @@
-from procedures.update_angle_list import update_angle_list
+from .update_angle_list import update_angle_list
 import numpy as np
 
 
