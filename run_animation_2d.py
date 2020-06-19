@@ -21,7 +21,7 @@ def animation2d(frame):
     plt.xlim(limits[0]-1, limits[1]+1)
     plt.ylim(limits[0]-1, limits[1]+1)
     scat2D.remove()
-    positions = population.chromossomesInformations
+    positions = population.chromossomes_informations
     scat2D = plt.scatter(positions[::3], positions[1::3], c=['k'])
     do_one_generation(geneticAlgorithm, population)
     geneticAlgorithm.iterations -= 1

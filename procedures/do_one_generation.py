@@ -5,9 +5,10 @@ import numpy as np
 def do_one_generation(genetic_algorithm, population):
     if genetic_algorithm.function.dimensions == 2:
         update_angle_list(genetic_algorithm, population)
+        print(population.chromossomes_angles)
     kids = np.array([])
     number_of_kids_created = 0
-    for creating_kids in range(genetic_algorithm.chromossomesNumber//2):
+    for creating_kids in range(genetic_algorithm.chromossomes_number//2):
         dad = genetic_algorithm.selection(population)
         mom = genetic_algorithm.selection(population)
         children = genetic_algorithm.crossover(dad, mom)
