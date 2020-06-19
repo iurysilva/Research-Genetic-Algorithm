@@ -34,7 +34,7 @@ class Sphere:
 class Cross:
     def __init__(self):
         self.limits = np.array([-10, 10], dtype="int64")
-        self.functionMinimum = np.array([1.349407, 1.349407])
+        self.function_minimum = np.array([1.349407, 1.349407])
         self.dimensions = 2
 
     def result(self, x):
