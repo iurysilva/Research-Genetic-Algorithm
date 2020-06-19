@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ac60163-20c0-4264-bf40-3174c6b7f09c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/benchmark_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects/benchmark_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,7 @@
       <recent name="C:\Users\iuryg\Documents\GitHub\Genetic-Algorithm\run_options" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.playground (1)">
+  <component name="RunManager" selected="Python.playground">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Genetic-Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,17 +99,14 @@
       <module name="Genetic-Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\iuryg\Documents\GitHub\Genetic-Algorithm\playground.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/playground.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -121,6 +117,9 @@
       <module name="Genetic-Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -139,6 +138,9 @@
       <module name="Genetic-Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -155,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.playground" />
         <item itemvalue="Python.playground (1)" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.playground" />
         <item itemvalue="Python.run_animation_2d" />
-        <item itemvalue="Python.run_without_animation" />
       </list>
     </recent_temporary>
   </component>
@@ -188,21 +190,21 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1592591982981">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1592593584074">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592591982981" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1592591982981">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592593584074" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1592593584074">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592591982981" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1592591982980">
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592593584074" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1592593584074">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592591982980" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1592591982981">
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592593584074" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1592593584074">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592591982981" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592593584074" />
   </component>
 </project>
