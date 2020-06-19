@@ -4,7 +4,7 @@ import numpy as np
 class Bukin6:
     def __init__(self):
         self.limits = np.array([-15, 3], dtype="int64")
-        self.functionMinimum = np.array([-10, 1])
+        self.function_minimum = np.array([-10, 1])
         self.dimensions = 2
 
     def result(self, x):
@@ -14,7 +14,7 @@ class Bukin6:
 class Eggholder:
     def __init__(self):
         self.limits = np.array([-512, 512], dtype="int64")
-        self.functionMinimum = np.array([512, 404.2319])
+        self.function_minimum = np.array([512, 404.2319])
         self.dimensions = 2
 
     def result(self, x):
@@ -24,7 +24,7 @@ class Eggholder:
 class Sphere:
     def __init__(self):
         self.limits = np.array([-32, 32], dtype="int64")
-        self.functionMinimum = np.array([0, 0])
+        self.function_minimum = np.array([0, 0])
         self.dimensions = 2
 
     def result(self, x):
@@ -34,7 +34,7 @@ class Sphere:
 class Cross:
     def __init__(self):
         self.limits = np.array([-10, 10], dtype="int64")
-        self.functionMinimum = np.array([1.349407, 1.349407])
+        self.function_minimum = np.array([1.349407, 1.349407])
         self.dimensions = 2
 
     def result(self, x):

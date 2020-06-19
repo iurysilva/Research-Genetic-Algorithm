@@ -7,7 +7,7 @@ class Chromossome:
         self.fitness = 0
 
     def generate_random_position(self, function):
-        limits = function.limits
+        limits = np.copy(function.limits)
         self.position = np.array(np.random.uniform(limits[0], limits[1]+1, function.dimensions), dtype="float64")
 
     def update_fitness(self, function):
