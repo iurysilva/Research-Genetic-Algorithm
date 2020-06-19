@@ -6,8 +6,8 @@ from procedures import make_histogram
 
 
 # creating project
-geneticAlgorithm = GeneticAlgorithm(iterations, chromossomesNumber, standartDeviation, mutationChance, function,
-                                    crossoverMethod, crossoverChance)
+geneticAlgorithm = GeneticAlgorithm(iterations, chromossomes_number, standart_deviation, mutation_chance, function,
+                                    crossover_method, crossover_chance)
 # creating population
 population = Population(geneticAlgorithm.create_chromossomes())
 population.update_chromossomes_informations(geneticAlgorithm)

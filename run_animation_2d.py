@@ -8,8 +8,8 @@ from procedures import make_histogram
 
 
 # creating project
-geneticAlgorithm = GeneticAlgorithm(iterations, chromossomesNumber, standartDeviation, mutationChance, function,
-                                    crossoverMethod, crossoverChance)
+geneticAlgorithm = GeneticAlgorithm(iterations, chromossomes_number, standart_deviation, mutation_chance, function,
+                                    crossover_method, crossover_chance)
 # creating population
 population = Population(geneticAlgorithm.create_chromossomes())
 population.update_chromossomes_informations(geneticAlgorithm)
@@ -21,7 +21,7 @@ def animation2d(frame):
     plt.xlim(limits[0]-1, limits[1]+1)
     plt.ylim(limits[0]-1, limits[1]+1)
     scat2D.remove()
-    positions = population.chromossomes_informations
+    positions = np.copy(population.chromossomes_informations)
     scat2D = plt.scatter(positions[::3], positions[1::3], c=['k'])
     do_one_generation(geneticAlgorithm, population)
     geneticAlgorithm.iterations -= 1
@@ -32,5 +32,5 @@ def animation2d(frame):
 
 
 scat2D = plt.scatter(0, 0)
-anim = FuncAnimation(plt.gcf(), animation2d, interval=animationVelocity, repeat=False)
+anim = FuncAnimation(plt.gcf(), animation2d, interval=animation_velocity, repeat=False)
 plt.show()

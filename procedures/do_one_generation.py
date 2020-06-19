@@ -22,4 +22,3 @@ def do_one_generation(genetic_algorithm, population):
     population.ordenate_chromossomes()
     genetic_algorithm.natural_selection(population, number_of_kids_created)
     population.update_chromossomes_informations(genetic_algorithm)
-
