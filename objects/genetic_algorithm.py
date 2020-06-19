@@ -21,8 +21,16 @@ class GeneticAlgorithm:
             chromossomes[i].update_fitness(self.function)
         return chromossomes
 
-    def selection(self, population):
+    def tournament(self, candidate_a, candidate_b):
         winner = Chromossome()
+        if candidate_a.fitness >= candidate_b.fitness:
+            winner.position = np.copy(candidate_b.position)
+        else:
+            winner.position = np.copy(candidate_a.position)
+        winner.update_fitness(self.function)
+        return winner
+
+    def selection(self, population):
         random_position_a = randint(0, self.chromossomes_number-1)
         candidate_a = population.chromossomes[random_position_a]
         while True:
@@ -30,11 +38,7 @@ class GeneticAlgorithm:
             if random_position_a != random_position_b:
                 candidate_b = population.chromossomes[random_position_b]
                 break
-        if candidate_a.fitness >= candidate_b.fitness:
-            winner.position = np.copy(candidate_b.position)
-        else:
-            winner.position = np.copy(candidate_a.position)
-        winner.update_fitness(self.function)
+        winner = self.tournament(candidate_a, candidate_b)
         return winner
 
     def mutation(self, kids):
