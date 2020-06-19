@@ -2,7 +2,7 @@ import numpy as np
 
 
 def update_angle_list(genetic_algorithm, population):
-    do = 0
+    do = False
     x = np.copy(population.chromossomes_informations[::3])
     y = np.copy(population.chromossomes_informations[1::3])
     new_angles = np.arctan2(y, x)*180/np.pi
@@ -12,6 +12,6 @@ def update_angle_list(genetic_algorithm, population):
     a = new_angles[0]
     for i in new_angles:
         if i != a:
-            do = 1
-    if do == 1:
+            do = True
+    if do:
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
