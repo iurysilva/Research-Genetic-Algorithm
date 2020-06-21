@@ -4,7 +4,7 @@ from random import *
 
 
 class GeneticAlgorithm:
-    def __init__(self, iterations, chromossomes_number, std, mutation_chance, function, crossover, cross_chance):
+    def __init__(self, iterations, chromossomes_number, std, mutation_chance, function, crossover, angle, cross_chance):
         self.iterations = iterations
         self.standart_deviation = std
         self.mutation_chance = mutation_chance
@@ -12,6 +12,7 @@ class GeneticAlgorithm:
         self.crossover_method = crossover
         self.crossover_chance = cross_chance
         self.chromossomes_number = chromossomes_number
+        self.update_angle_method = angle
 
     def create_chromossomes(self):
         chromossomes = np.array([])

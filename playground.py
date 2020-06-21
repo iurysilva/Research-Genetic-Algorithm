@@ -1,4 +1,5 @@
 from procedures.crossover_methods import *
+from procedures.update_angle_methods import *
 from objects.benchmark_functions import *
 from objects import GeneticAlgorithm
 from objects import Population
@@ -13,12 +14,13 @@ iterations = 1000
 function = Sphere()  # Eggholder(), Sphere(), Bukin6() or Cross()
 chromossomes_number = 50
 crossover_method = arithmetic  # arithmetic
+update_angle_method = only_position
 animation_velocity = 20  # In millisecond's
 animation = False
 
 # creating project
 genetic_algorithm = GeneticAlgorithm(iterations, chromossomes_number, standart_deviation, mutation_chance, function,
-                                    crossover_method, crossover_chance)
+                                    crossover_method, update_angle_method, crossover_chance)
 # creating population
 population = Population(genetic_algorithm.create_chromossomes())
 population.update_chromossomes_informations(genetic_algorithm)

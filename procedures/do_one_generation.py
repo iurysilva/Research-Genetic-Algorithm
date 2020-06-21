@@ -1,10 +1,9 @@
-from .update_angle_list import update_angle_list
 import numpy as np
 
 
 def do_one_generation(genetic_algorithm, population):
     if genetic_algorithm.function.dimensions == 2:
-        update_angle_list(genetic_algorithm, population)
+        genetic_algorithm.update_angle_method(genetic_algorithm, population)
     kids = np.array([])
     number_of_kids_created = 0
     for creating_kids in range(genetic_algorithm.chromossomes_number//2):
