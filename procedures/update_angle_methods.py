@@ -1,25 +1,41 @@
 import numpy as np
 
 
-def verify_if_chromossomes_are_equal(population):
-    first_x = np.copy(population.chromossomes_informations[0])
-    first_y = np.copy(population.chromossomes_informations[1])
-    for chromossome in population.chromossomes:
-        if first_x != chromossome.position[0] or first_y != chromossome.position[1]:
-            return False
+def angle_is_valid(r, kid):
+    if type(kid.dad) == int:
+        return False
+    if r[0] == 0 and r[1] == 0:
+        return False
     return True
 
 
+def fix_angles(angles):
+    for i in range(len(angles)):
+        if angles[i] < 0:
+            angles[i] += 360
+    return angles
+
+
 def only_position(genetic_algorithm, population, kids):
-    if verify_if_chromossomes_are_equal(population) is False:
+    if genetic_algorithm.dimensions == 2:
         x = np.copy(population.chromossomes_informations[::3])
         y = np.copy(population.chromossomes_informations[1::3])
         new_angles = np.arctan2(y, x)*180/np.pi
-        for yPosition in range(genetic_algorithm.chromossomes_number):
-            if y[yPosition] < 0:
-                new_angles[yPosition] += 360
+        new_angles = fix_angles(new_angles)
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
 
 
 def arctan_with_parents_position(genetic_algorithm, population, kids):
-    pass
+    new_angles = np.array([])
+    if genetic_algorithm.function.dimensions == 2:
+        for i in range(0, genetic_algorithm.chromossomes_number, 2):
+            r1 = kids[i].position - kids[i].dad
+            r2 = kids[i+1].position - kids[i+1].mom
+            if angle_is_valid(r1, kids[i]):
+                angle1 = np.arctan2(r1[1], r1[0]) * 180 / np.pi
+                new_angles = np.append(new_angles, angle1)
+            if angle_is_valid(r2, kids[i+1]):
+                angle2 = np.arctan2(r2[1], r2[0]) * 180 / np.pi
+                new_angles = np.append(new_angles, angle2)
+        new_angles = fix_angles(new_angles)
+        population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))

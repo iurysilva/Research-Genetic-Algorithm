@@ -10,11 +10,11 @@ from run_options import run_animation_2d
 crossover_chance = 0.80
 mutation_chance = 0.02
 standart_deviation = 3  # Will be used in the Gaussian Mutation
-iterations = 1000
+iterations = 200
 function = Sphere()  # Eggholder(), Sphere(), Bukin6() or Cross()
 chromossomes_number = 50
 crossover_method = arithmetic  # arithmetic
-update_angle_method = only_position
+update_angle_method = arctan_with_parents_position  # arctan_with_parents_position, only_position
 animation_velocity = 20  # In millisecond's
 animation = False
 
