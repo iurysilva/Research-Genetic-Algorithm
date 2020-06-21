@@ -2,8 +2,6 @@ import numpy as np
 
 
 def do_one_generation(genetic_algorithm, population):
-    if genetic_algorithm.function.dimensions == 2:
-        genetic_algorithm.update_angle_method(genetic_algorithm, population)
     kids = np.array([])
     number_of_kids_created = 0
     for creating_kids in range(genetic_algorithm.chromossomes_number//2):
@@ -17,6 +15,8 @@ def do_one_generation(genetic_algorithm, population):
             kids = np.concatenate((kids, children))
         number_of_kids_created += 2
     kids = genetic_algorithm.mutation(kids)
+    if genetic_algorithm.function.dimensions == 2:
+        genetic_algorithm.update_angle_method(genetic_algorithm, population, kids)
     population.chromossomes = np.concatenate((population.chromossomes, kids))
     population.ordenate_chromossomes()
     genetic_algorithm.natural_selection(population, number_of_kids_created)

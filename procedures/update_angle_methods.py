@@ -10,7 +10,7 @@ def verify_if_chromossomes_are_equal(population):
     return True
 
 
-def only_position(genetic_algorithm, population):
+def only_position(genetic_algorithm, population, kids):
     if verify_if_chromossomes_are_equal(population) is False:
         x = np.copy(population.chromossomes_informations[::3])
         y = np.copy(population.chromossomes_informations[1::3])
@@ -20,3 +20,6 @@ def only_position(genetic_algorithm, population):
                 new_angles[yPosition] += 360
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
 
+
+def arctan_with_parents_position(genetic_algorithm, population, kids):
+    pass

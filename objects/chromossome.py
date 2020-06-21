@@ -5,6 +5,9 @@ class Chromossome:
     def __init__(self):
         self.position = 0
         self.fitness = 0
+        self.dad = 0
+        self.mom = 0
+        self.position_before_mutation = 0
 
     def generate_random_position(self, function):
         limits = np.copy(function.limits)

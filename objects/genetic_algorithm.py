@@ -46,10 +46,8 @@ class GeneticAlgorithm:
             for dimension in range(self.function.dimensions):
                 if random() < self.mutation_chance:
                     kid.position[dimension] = kid.position[dimension] + np.random.normal(0, 3)
-                    kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                else:
-                    kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                kid.update_fitness(self.function)
+                kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
+            kid.update_fitness(self.function)
         return kids
 
     def crossover(self, dad, mom):
