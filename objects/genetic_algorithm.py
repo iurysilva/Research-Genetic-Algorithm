@@ -27,7 +27,6 @@ class GeneticAlgorithm:
             winner.position = np.copy(candidate_b.position)
         else:
             winner.position = np.copy(candidate_a.position)
-        winner.update_fitness(self.function)
         return winner
 
     def selection(self, population):
@@ -47,10 +46,9 @@ class GeneticAlgorithm:
                 if random() < self.mutation_chance:
                     kid.position[dimension] = kid.position[dimension] + np.random.normal(0, 3)
                     kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                    kid.update_fitness(self.function)
                 else:
                     kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                    kid.update_fitness(self.function)
+                kid.update_fitness(self.function)
         return kids
 
     def crossover(self, dad, mom):
