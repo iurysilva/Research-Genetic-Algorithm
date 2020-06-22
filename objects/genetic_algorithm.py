@@ -15,6 +15,7 @@ class GeneticAlgorithm:
         self.update_angle_method = angle
 
     def create_chromossomes(self):
+        print("Created Chromossomes")
         chromossomes = np.array([])
         for i in range(self.chromossomes_number):
             chromossomes = np.append(chromossomes, Chromossome())

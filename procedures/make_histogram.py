@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def make_histogram(genetic_algorithm, population):
+    print("Creating a histogram with movement angles")
     f_minimum = genetic_algorithm.function.function_minimum
     best = population.chromossomes[0].position
     plt.clf()
