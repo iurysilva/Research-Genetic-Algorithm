@@ -1,14 +1,19 @@
 import numpy as np
 
 
+def add_parents(son, dad, mom):
+    son.dad = np.copy(dad.position)
+    son.mom = np.copy(mom.position)
+    return son
+
+
 def arithmetic(genetic_algorithm, son1, son2, dad, mom):
     r = np.random.uniform(0, 1, genetic_algorithm.function.dimensions)
     son1.position = dad.position*r+(1-r)*mom.position
-    son1.dad = np.copy(dad.position)
+    son1 = add_parents(son1, dad, mom)
     son1.mom = np.copy(mom.position)
     son2.position = mom.position*r+(1-r)*dad.position
-    son2.dad = np.copy(dad.position)
-    son2.mom = np.copy(mom.position)
+    son2 = add_parents(son2, dad, mom)
     return np.array([son1, son2])
 
 
