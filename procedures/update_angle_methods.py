@@ -2,9 +2,7 @@ import numpy as np
 
 
 def angle_is_valid(r, kid):
-    if type(kid.dad) == int:
-        return False
-    if r[0] == 0 and r[1] == 0:
+    if (type(kid.dad) == int) or (r[0] == 0 and r[1] == 0):
         return False
     return True
 
@@ -44,3 +42,6 @@ def arctan_with_parents_position(genetic_algorithm, population, kids):
             new_angles = add_angles(new_angles, r1, r2, kids, i)
         new_angles = fix_angles(new_angles)
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
+
+
+
