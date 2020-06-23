@@ -21,12 +21,17 @@ def add_angles_tan(new_angles, r, kid):
     return new_angles
 
 
-def add_angles_cos(new_angles, r, kid, parent):
+def add_angles_cos(new_angles, r, kid):
     if angle_is_valid(r, kid):
-        denominator = np.dot(np.abs(parent), np.abs(r))
-        product = np.dot(parent, r)
-        angle1 = np.degrees(np.arccos(product / denominator))
-        new_angles = np.append(new_angles, angle1)
+        x_axe = np.array([1, 0])
+        scalar_product = np.dot(r, x_axe)
+        module = np.sqrt(np.sum(r**2))
+        if module != np.float64(0):
+            if 1 >= scalar_product / module >= -1:
+                angle = np.degrees(np.arccos(scalar_product / module))
+                if r[1] < 0:
+                    angle = 360 - angle
+                new_angles = np.append(new_angles, angle)
     return new_angles
 
 
@@ -57,6 +62,6 @@ def arccos_with_parent_position(genetic_algorithm, population, kids):
         for i in range(0, genetic_algorithm.chromossomes_number, 2):
             r1 = kids[i].position - kids[i].dad
             r2 = kids[i+1].position - kids[i+1].mom
-            new_angles = add_angles_cos(new_angles, r1, kids[i], kids[i].dad)
-            new_angles = add_angles_cos(new_angles, r2, kids[i+1], kids[i+1].mom)
+            new_angles = add_angles_cos(new_angles, r1, kids[i])
+            new_angles = add_angles_cos(new_angles, r2, kids[i+1])
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
