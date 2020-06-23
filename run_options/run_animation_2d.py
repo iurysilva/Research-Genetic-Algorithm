@@ -32,5 +32,6 @@ def run_animation_2d(genetic_algorithm2, population2, animation_velocity):
     genetic_algorithm = genetic_algorithm2
     population = population2
     scat2D = plt.scatter(0, 0)
+    print("Initializing with 2D animation")
     anim = FuncAnimation(plt.gcf(), animation2d, interval=animation_velocity, repeat=False)
     plt.show()

@@ -4,7 +4,7 @@ from random import *
 
 
 class GeneticAlgorithm:
-    def __init__(self, iterations, chromossomes_number, std, mutation_chance, function, crossover, cross_chance):
+    def __init__(self, iterations, chromossomes_number, std, mutation_chance, function, crossover, angle, cross_chance):
         self.iterations = iterations
         self.standart_deviation = std
         self.mutation_chance = mutation_chance
@@ -12,8 +12,10 @@ class GeneticAlgorithm:
         self.crossover_method = crossover
         self.crossover_chance = cross_chance
         self.chromossomes_number = chromossomes_number
+        self.update_angle_method = angle
 
     def create_chromossomes(self):
+        print("Created Chromossomes")
         chromossomes = np.array([])
         for i in range(self.chromossomes_number):
             chromossomes = np.append(chromossomes, Chromossome())
@@ -27,7 +29,6 @@ class GeneticAlgorithm:
             winner.position = np.copy(candidate_b.position)
         else:
             winner.position = np.copy(candidate_a.position)
-        winner.update_fitness(self.function)
         return winner
 
     def selection(self, population):
@@ -46,11 +47,8 @@ class GeneticAlgorithm:
             for dimension in range(self.function.dimensions):
                 if random() < self.mutation_chance:
                     kid.position[dimension] = kid.position[dimension] + np.random.normal(0, 3)
-                    kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                    kid.update_fitness(self.function)
-                else:
-                    kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
-                    kid.update_fitness(self.function)
+                kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
+            kid.update_fitness(self.function)
         return kids
 
     def crossover(self, dad, mom):
