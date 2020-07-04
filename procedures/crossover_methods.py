@@ -9,8 +9,6 @@ def create_circle_son(son, radius, mid):
     son.position[1] = np.random.uniform(-1 * y_limit, y_limit)
     son.position[1] = mid[1] + son.position[1]
     module = np.sqrt((son.position[0] - mid[0]) ** 2 + (son.position[1] - mid[1]) ** 2)
-    if module > radius:
-        print(radius, mid)
     return son
 
 
