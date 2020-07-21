@@ -47,8 +47,6 @@ class GeneticAlgorithm:
         for kid in kids:
             if random() < self.mutation_chance or type(kid.dad) == int or type(kid.mom) == int:
                 kid.position = kid.position + np.random.normal(0, self.standart_deviation, dimensions)
-            kid.position = self.make_chromossome_stay_on_bounds(kid.position)
-            kid.update_fitness(self.function)
         return kids
 
     def crossover(self, dad, mom):
@@ -64,13 +62,3 @@ class GeneticAlgorithm:
     def natural_selection(self, population, number_of_kids_created):
         for _ in range(number_of_kids_created):
             population.chromossomes = np.delete(population.chromossomes, -1)
-
-    def make_chromossome_stay_on_bounds(self, position):
-        inferior_limit = self.function.limits[0]
-        superior_limit = self.function.limits[1]
-        for dimension in range(self.function.dimensions):
-            if position[dimension] < inferior_limit:
-                position[dimension] = inferior_limit
-            elif position[dimension] > superior_limit:
-                position[dimension] = superior_limit
-        return position
