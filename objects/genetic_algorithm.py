@@ -46,7 +46,7 @@ class GeneticAlgorithm:
         for kid in kids:
             for dimension in range(self.function.dimensions):
                 if random() < self.mutation_chance:
-                    kid.position[dimension] = kid.position[dimension] + np.random.normal(0, 3)
+                    kid.position[dimension] = kid.position[dimension] + np.random.normal(0, self.standart_deviation)
                 kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
             kid.update_fitness(self.function)
         return kids

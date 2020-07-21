@@ -3,12 +3,11 @@ import numpy as np
 
 def create_circle_son(son, radius, mid):
     radius = radius*1.5
-    son.position[0] = np.random.uniform(-1 * radius, radius)
+    x_limit = np.random.uniform(-1 * radius, radius)
     y_limit = np.sqrt(radius ** 2 - son.position[0] ** 2)
-    son.position[0] = mid[0] + son.position[0]
-    son.position[1] = np.random.uniform(-1 * y_limit, y_limit)
-    son.position[1] = mid[1] + son.position[1]
-    module = np.sqrt((son.position[0] - mid[0]) ** 2 + (son.position[1] - mid[1]) ** 2)
+    son.position[0] = mid[0] + x_limit
+    y_limit = np.random.uniform(-1 * y_limit, y_limit)
+    son.position[1] = mid[1] + y_limit
     return son
 
 

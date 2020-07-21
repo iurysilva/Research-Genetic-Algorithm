@@ -15,7 +15,7 @@ function = Sphere()  # Eggholder(), Sphere(), Bukin6() or Cross()
 chromossomes_number = 50
 crossover_method = circle  # arithmetic, circle
 # arctan_with_parent_position, only_position or arccos_with_parent_position
-update_angle_method = arctan_with_parent_position
+update_angle_method = arccos_with_parent_position
 animation_velocity = 20  # In millisecond's
 animation = False
 
