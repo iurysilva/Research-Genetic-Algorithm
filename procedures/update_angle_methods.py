@@ -2,7 +2,7 @@ import numpy as np
 
 
 def angle_is_valid(r, kid):
-    if (type(kid.dad) == int) or (r[0] == 0 and r[1] == 0):
+    if type(kid.dad) == int:
         return False
     return True
 
@@ -26,12 +26,11 @@ def add_angles_cos(new_angles, r, kid):
         x_axe = np.array([1, 0])
         scalar_product = np.dot(r, x_axe)
         module = np.sqrt(np.sum(r**2))
-        if module != np.float64(0):
-            if 1 >= scalar_product / module >= -1:
-                angle = np.degrees(np.arccos(scalar_product / module))
-                if r[1] < 0:
-                    angle = 360 - angle
-                new_angles = np.append(new_angles, angle)
+        if 1 >= scalar_product / module >= -1:
+            angle = np.degrees(np.arccos(scalar_product / module))
+            if r[1] < 0:
+                angle = 360 - angle
+            new_angles = np.append(new_angles, angle)
     return new_angles
 
 
