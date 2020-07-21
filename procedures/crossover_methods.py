@@ -11,6 +11,17 @@ def create_circle_son(son, radius, mid):
     return son
 
 
+def create_circle_son2(son, radius, mid):
+    son.position[0] = np.random.uniform(0, radius)
+    son.position[1] = 0  # só para garantir
+    theta = np.radians(np.random.uniform(0, 360))
+    c, s = np.cos(theta), np.sin(theta)
+    M = np.array(((c, -s), (s, c)))
+    son.position = M.dot(son.position)
+    son.position = mid + son.position
+    return son
+
+
 def add_parents(son, dad, mom):
     son.dad = np.copy(dad.position)
     son.mom = np.copy(mom.position)

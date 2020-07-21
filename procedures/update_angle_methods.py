@@ -23,6 +23,8 @@ def add_angles_cos(new_angles, r):
             if r[1] < 0:
                 angle = 360 - angle
             new_angles = np.append(new_angles, angle)
+    else:
+        new_angles = np.append(new_angles, 0)
     return new_angles
 
 
