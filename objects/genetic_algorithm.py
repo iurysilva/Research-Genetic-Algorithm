@@ -45,7 +45,7 @@ class GeneticAlgorithm:
     def mutation(self, kids):
         dimensions = self.function.dimensions
         for kid in kids:
-            if random() < self.mutation_chance:
+            if random() < self.mutation_chance or type(kid.dad) == int or type(kid.mom) == int:
                 kid.position = kid.position + np.random.normal(0, self.standart_deviation, dimensions)
             kid.position = self.make_chromossome_stay_on_bounds(kid.position)
             kid.update_fitness(self.function)

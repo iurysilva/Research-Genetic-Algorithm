@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects/genetic_algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/do_one_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/do_one_generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/update_angle_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/update_angle_methods.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +55,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\iuryg\Documents\GitHub\Genetic-Algorithm" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\iuryg\Documents\GitHub\Genetic-Algorithm\run_options" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\iuryg\Documents\GitHub\Genetic-Algorithm" />
     </key>
   </component>
   <component name="RunManager" selected="Python.playground">

@@ -1,12 +1,6 @@
 import numpy as np
 
 
-def angle_is_valid(r, kid):
-    if type(kid.dad) == int:
-        return False
-    return True
-
-
 def fix_angles(angles):
     for i in range(len(angles)):
         if angles[i] < 0:
@@ -14,18 +8,16 @@ def fix_angles(angles):
     return angles
 
 
-def add_angles_tan(new_angles, r, kid):
-    if angle_is_valid(r, kid):
-        angle = np.arctan2(r[1], r[0]) * 180 / np.pi
-        new_angles = np.append(new_angles, angle)
+def add_angles_tan(new_angles, r):
+    angle = np.arctan2(r[1], r[0]) * 180 / np.pi
+    new_angles = np.append(new_angles, angle)
     return new_angles
 
 
-def add_angles_cos(new_angles, r, kid):
-    if angle_is_valid(r, kid):
-        x_axe = np.array([1, 0])
-        scalar_product = np.dot(r, x_axe)
-        module = np.sqrt(np.sum(r**2))
+def add_angles_cos(new_angles, r):
+    scalar_product = r[0]
+    module = np.sqrt(np.sum(r**2))
+    if module != np.float64(0):
         if 1 >= scalar_product / module >= -1:
             angle = np.degrees(np.arccos(scalar_product / module))
             if r[1] < 0:
@@ -49,8 +41,8 @@ def arctan_with_parent_position(genetic_algorithm, population, kids):
         for i in range(0, genetic_algorithm.chromossomes_number, 2):
             r1 = kids[i].position - kids[i].dad
             r2 = kids[i+1].position - kids[i+1].mom
-            new_angles = add_angles_tan(new_angles, r1, kids[i])
-            new_angles = add_angles_tan(new_angles, r2, kids[i+1])
+            new_angles = add_angles_tan(new_angles, r1)
+            new_angles = add_angles_tan(new_angles, r2)
         new_angles = fix_angles(new_angles)
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
 
@@ -61,6 +53,6 @@ def arccos_with_parent_position(genetic_algorithm, population, kids):
         for i in range(0, genetic_algorithm.chromossomes_number, 2):
             r1 = kids[i].position - kids[i].dad
             r2 = kids[i+1].position - kids[i+1].mom
-            new_angles = add_angles_cos(new_angles, r1, kids[i])
-            new_angles = add_angles_cos(new_angles, r2, kids[i+1])
+            new_angles = add_angles_cos(new_angles, r1)
+            new_angles = add_angles_cos(new_angles, r2)
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
