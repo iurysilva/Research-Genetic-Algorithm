@@ -43,11 +43,11 @@ class GeneticAlgorithm:
         return winner
 
     def mutation(self, kids):
+        dimensions = self.function.dimensions
         for kid in kids:
-            for dimension in range(self.function.dimensions):
-                if random() < self.mutation_chance:
-                    kid.position[dimension] = kid.position[dimension] + np.random.normal(0, self.standart_deviation)
-                kid.position[dimension] = self.make_chromossome_stay_on_bounds(kid.position[dimension])
+            if random() < self.mutation_chance:
+                kid.position = kid.position + np.random.normal(0, self.standart_deviation, dimensions)
+            kid.position = self.make_chromossome_stay_on_bounds(kid.position)
             kid.update_fitness(self.function)
         return kids
 
@@ -65,12 +65,12 @@ class GeneticAlgorithm:
         for _ in range(number_of_kids_created):
             population.chromossomes = np.delete(population.chromossomes, -1)
 
-    def make_chromossome_stay_on_bounds(self, x_or_y):
+    def make_chromossome_stay_on_bounds(self, position):
         inferior_limit = self.function.limits[0]
         superior_limit = self.function.limits[1]
-        if x_or_y < inferior_limit:
-            return inferior_limit
-        elif x_or_y > superior_limit:
-            return superior_limit
-        else:
-            return x_or_y
+        for dimension in range(self.function.dimensions):
+            if position[dimension] < inferior_limit:
+                position[dimension] = inferior_limit
+            elif position[dimension] > superior_limit:
+                position[dimension] = superior_limit
+        return position
