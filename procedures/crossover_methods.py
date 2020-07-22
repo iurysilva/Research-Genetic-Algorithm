@@ -2,16 +2,17 @@ import numpy as np
 
 
 def create_circle_son(son, radius, mid):
-    radius = radius*1.5
-    x_limit = np.random.uniform(-1 * radius, radius)
-    y_limit = np.sqrt(radius ** 2 - son.position[0] ** 2)
-    son.position[0] = mid[0] + x_limit
-    y_limit = np.random.uniform(-1 * y_limit, y_limit)
-    son.position[1] = mid[1] + y_limit
+    radius = radius * 1.5
+    x_position = np.random.uniform(-1 * radius, radius)
+    y_limit = np.sqrt(radius ** 2 - x_position ** 2)
+    son.position[0] = mid[0] + x_position
+    y_position = np.random.uniform(-1 * y_limit, y_limit)
+    son.position[1] = mid[1] + y_position
     return son
 
 
 def create_circle_son2(son, radius, mid):
+    radius = radius * 1.5
     son.position[0] = np.random.uniform(0, radius)
     son.position[1] = 0  # só para garantir
     theta = np.radians(np.random.uniform(0, 360))
@@ -40,9 +41,11 @@ def arithmetic(genetic_algorithm, son1, son2, dad, mom):
 def circle(genetic_algorithm, son1, son2, dad, mom):
     mid = (dad.position+mom.position)/2
     radius = np.sqrt(np.sum((dad.position-mid)**2))
-    son1 = create_circle_son(son1, radius, mid)
+    if radius < genetic_algorithm.radius_limit:
+        radius = genetic_algorithm.radius_limit
+    son1 = create_circle_son2(son1, radius, mid)
     son1 = add_parents(son1, dad, mom)
-    son2 = create_circle_son(son2, radius, mid)
+    son2 = create_circle_son2(son2, radius, mid)
     son2 = add_parents(son2, dad, mom)
     return np.array([son1, son2])
 
