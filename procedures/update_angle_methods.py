@@ -23,6 +23,8 @@ def add_angles_cos(new_angles, r):
             if r[1] < 0:
                 angle = 360 - angle
             new_angles = np.append(new_angles, angle)
+    else:
+        new_angles = np.append(new_angles, 0)
     return new_angles
 
 
@@ -36,7 +38,7 @@ def only_position(genetic_algorithm, population, kids):
 
 
 def arctan_with_parent_position(genetic_algorithm, population, kids):
-    new_angles = np.array([])
+    new_angles = np.array([], dtype="float64")
     if genetic_algorithm.function.dimensions == 2:
         for i in range(0, genetic_algorithm.chromossomes_number, 2):
             r1 = kids[i].position - kids[i].dad

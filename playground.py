@@ -7,9 +7,10 @@ from run_options import run_without_animation
 from run_options import run_animation_2d
 
 
-crossover_chance = 1
+crossover_chance = 0.80
 mutation_chance = 0.02
 standart_deviation = 3  # Will be used in the Gaussian Mutation
+radius_limit = 2  # Will be used in the circle crossover
 iterations = 1000
 function = Sphere()  # Eggholder(), Sphere(), Bukin6() or Cross()
 chromossomes_number = 50
@@ -21,7 +22,7 @@ animation = False
 
 # creating project
 genetic_algorithm = GeneticAlgorithm(iterations, chromossomes_number, standart_deviation, mutation_chance, function,
-                                    crossover_method, update_angle_method, crossover_chance)
+                                    crossover_method, update_angle_method, crossover_chance, radius_limit)
 # creating population
 population = Population(genetic_algorithm.create_chromossomes())
 population.update_chromossomes_informations(genetic_algorithm)
