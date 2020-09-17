@@ -1,5 +1,5 @@
 import numpy as np
-from . import Chromossome
+from objects import Chromossome
 from random import *
 
 
@@ -16,7 +16,6 @@ class GeneticAlgorithm:
         self.radius_limit = radius_limit
 
     def create_chromossomes(self):
-        print("Created Chromossomes")
         chromossomes = np.array([])
         for i in range(self.chromossomes_number):
             chromossomes = np.append(chromossomes, Chromossome())

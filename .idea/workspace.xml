@@ -21,10 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ac60163-20c0-4264-bf40-3174c6b7f09c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects/genetic_algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground.py" beforeDir="false" afterPath="$PROJECT_DIR$/playground.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/crossover_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/crossover_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/update_angle_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/update_angle_methods.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +49,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Particle-Swarm-Optimization" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -205,6 +201,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1595819213823">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1595819213823" />
     <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1592876254101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,34 +1,61 @@
 import numpy as np
 
 
+def rotate_x(x, y, theta):
+    return x * np.cos(theta) - y * np.sin(theta)
+
+
+def rotate_y(x, y, theta):
+    return y * np.cos(theta) + x * np.sin(theta)
+
+
 class Bukin6:
     def __init__(self):
         self.limits = np.array([-15, 3], dtype="int64")
         self.function_minimum = np.array([-10, 1])
+        self.function_minimum_fitness = 0
         self.dimensions = 2
+        self.precision = 0.5
+        self.rotation_number = 0
 
     def result(self, x):
-        return 100*(np.sqrt(np.absolute(x[1]-0.01*x[0]**2)))+(0.01*np.absolute(x[0]+10))
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        return 100 * (np.sqrt(np.absolute(x1 - 0.01 * x0 ** 2))) + (0.01 * np.absolute(x0 + 10))
 
 
 class Eggholder:
     def __init__(self):
         self.limits = np.array([-512, 512], dtype="int64")
         self.function_minimum = np.array([512, 404.2319])
+        self.function_minimum_fitness = -959.6407
         self.dimensions = 2
+        self.precision = 60
+        self.rotation_number = 0
 
     def result(self, x):
-        return -(x[1]+47)*np.sin(np.sqrt(np.absolute(x[1]+(x[0]/2)+47)))-x[0]*np.sin(np.sqrt(np.absolute(x[0]-(x[1]+47))))
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        return -(x1 + 47) * np.sin(np.sqrt(np.absolute(x1 + (x0 / 2) + 47))) - x0 * np.sin(
+            np.sqrt(np.absolute(x0 - (x1 + 47))))
 
 
 class Sphere:
     def __init__(self):
         self.limits = np.array([-32, 32], dtype="int64")
         self.function_minimum = np.array([0, 0])
+        self.function_minimum_fitness = 0
         self.dimensions = 2
+        self.precision = 5
+        self.rotation_number = 0
 
     def result(self, x):
-        return np.sum(x**2)
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        return x0**2 + x1**2
 
 
 class Cross:
@@ -36,6 +63,7 @@ class Cross:
         self.limits = np.array([-10, 10], dtype="int64")
         self.function_minimum = np.array([1.349407, 1.349407])
         self.dimensions = 2
+        self.precision = 1
 
     def result(self, x):
         a = np.sqrt(x[0] ** 2 + x[1] ** 2) / np.pi
@@ -45,12 +73,23 @@ class Cross:
         return -0.0001 * d
 
 
-'''
-def booth(x,swarm):
-    swarm.limits= np.array([-10,10],dtype="int64")
-    swarm.function_minimum= np.array([1,3])
-    return (x[0]+2*x[1]-7)**2+(2*x[0]+x[1]-5)**2
+class Booth:
+    def __init__(self):
+        self.limits = np.array([-10, 10], dtype="int64")
+        self.function_minimum = np.array([1, 3])
+        self.function_minimum_fitness = 0
+        self.dimensions = 2
+        self.precision = 1
+        self.rotation_number = 0
 
+    def result(self, x):
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        return (x0+2*x1-7)**2+(2*x0+x1-5)**2
+
+
+'''
 def beale(x,swarm):
     swarm.limits= np.array([-4.5,4.5],dtype="int64")
     swarm.function_minimum= np.array([3,0.5])
@@ -84,6 +123,6 @@ def schaffer2(x,swarm):
 def rastrigin(x,swarm):
     swarm.limits= np.array([-5.12,5.12],dtype="int64")
     swarm.function_minimum= np.array([0,0])
-    
+
     return 20+(x[0]**2-10*np.cos(2*np.pi*x[0]))+(x[1]**2-10*np.cos(2*np.pi*x[1]))
 '''
