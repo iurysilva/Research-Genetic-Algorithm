@@ -89,6 +89,60 @@ class Booth:
         return (x0+2*x1-7)**2+(2*x0+x1-5)**2
 
 
+class Easom:
+    def __init__(self):
+        self.limits = np.array([-100, 100], dtype="int64")
+        self.function_minimum = np.array([np.pi, np.pi])
+        self.function_minimum_fitness = -1
+        self.dimensions = 2
+        self.precision = 1
+        self.rotation_number = 45
+
+    def result(self, x):
+        theta = np.radians(self.rotation_number)
+        print(rotate_x(np.pi, np.pi, theta), rotate_y(np.pi, np.pi, theta))
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        return -np.cos(x0)*np.cos(x1)*np.exp(-1*((x0-np.pi)**2+(x1-np.pi)**2))
+
+
+class Schaffer2:
+    def __init__(self):
+        self.limits = np.array([-100, 100], dtype="int64")
+        self.function_minimum = np.array([0, 0])
+        self.function_minimum_fitness = 0
+        self.dimensions = 2
+        self.precision = 5
+        self.rotation_number = 0
+
+    def result(self, x):
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        num = (np.sin(x0 ** 2 - x1 ** 2)) ** 2 - 0.5
+        den = (1 + 0.001 * (x0 ** 2 + x1 ** 2)) ** 2
+        return 0.5 + (num / den)
+
+
+class Ellipse:
+    def __init__(self):
+        self.limits = np.array([-100, 100], dtype="int64")
+        self.function_minimum = np.array([0, 0])
+        self.function_minimum_fitness = 0
+        self.dimensions = 2
+        self.precision = 5
+        self.rotation_number = 0
+
+    def result(self, x):
+        theta = np.radians(self.rotation_number)
+        x0 = rotate_x(x[0], x[1], theta)
+        x1 = rotate_y(x[0], x[1], theta)
+        semiMajor = 0.000076
+        semiMinor = 0.000001
+        xt = x0 / semiMajor
+        yt = x1 / semiMinor
+        return np.sqrt(xt * xt + yt * yt)
+
 '''
 def beale(x,swarm):
     swarm.limits= np.array([-4.5,4.5],dtype="int64")
@@ -113,12 +167,6 @@ def ackley(x,swarm):
 
 
 
-def schaffer2(x,swarm):
-    swarm.limits= np.array([-100,100],dtype="int64")
-    swarm.function_minimum= np.array([0,0])
-    num= (np.sin(x[0]**2-x[1]**2))**2-0.5
-    den= (1+0.001*(x[0]**2+x[1]**2))**2
-    return 0.5+(num/den)
 
 def rastrigin(x,swarm):
     swarm.limits= np.array([-5.12,5.12],dtype="int64")

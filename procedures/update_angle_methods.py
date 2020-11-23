@@ -41,10 +41,11 @@ def arctan_with_parent_position(genetic_algorithm, population, kids):
     new_angles = np.array([], dtype="float64")
     if genetic_algorithm.function.dimensions == 2:
         for i in range(0, genetic_algorithm.chromossomes_number, 2):
-            r1 = kids[i].position - kids[i].dad
-            r2 = kids[i+1].position - kids[i+1].mom
-            new_angles = add_angles_tan(new_angles, r1)
-            new_angles = add_angles_tan(new_angles, r2)
+            if kids[i].dad is not False:
+                r1 = kids[i].position - kids[i].dad
+                r2 = kids[i+1].position - kids[i+1].mom
+                new_angles = add_angles_tan(new_angles, r1)
+                new_angles = add_angles_tan(new_angles, r2)
         new_angles = fix_angles(new_angles)
         population.chromossomes_angles = np.concatenate((population.chromossomes_angles, new_angles))
 

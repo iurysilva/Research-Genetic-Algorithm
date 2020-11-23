@@ -12,7 +12,6 @@ def create_circle_son(son, radius, mid):
 
 
 def create_circle_son2(son, radius, mid):
-    radius = radius * 1.5
     son.position[0] = np.random.uniform(0, radius)
     son.position[1] = 0  # só para garantir
     theta = np.radians(np.random.uniform(0, 360))

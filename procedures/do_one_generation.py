@@ -9,9 +9,9 @@ def do_one_generation(genetic_algorithm, population):
         mom = genetic_algorithm.selection(population)
         children = genetic_algorithm.crossover(dad, mom)
         if children is False:
-            dad.dad = np.copy(dad.position)
+            dad.dad = False
             kids = np.append(kids, dad)
-            mom.mom = np.copy(mom.position)
+            mom.mom = False
             kids = np.append(kids, mom)
         else:
             kids = np.concatenate((kids, children))
